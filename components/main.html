@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="#" onclick="loadContent('person.html')">
+                    <i class="ai-person"></i>
+                    <span>Person</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="loadContent('message.html')">
+                    <i class="ai-chat-bubble"></i>
+                    <span>Message</span>
+                </a>
+            </li>    
+            <li>
+                <a href="#" onclick="loadContent('contact.html')">
+                    <i class="ai-person-add"></i>
+                    <span>Add</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="loadContent('friendList.html')">
+                    <i class="ai-check-box"></i>
+                    <span>Friend List</span>
+                </a>
+            </li>    
+            <li>
+                <a href="#" onclick="loadContent('cloud.html')">
+                    <i class="ai-cloud"></i>
+                    <span>Cloud</span>
+                </a>
+            </li>
+            <li>
+                <div>
+                    <a href="#" onclick="loadContent('notifications.html')" class="notification">
+                        <i class="ai-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                </div>
+            </li>
+            <li>    
+                <a href="#" onclick="loadContent('settings.html')">
+                    <i class="ai-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="logout()" oncl>
+                    <i class="ai-sign-out"></i>
+                    <span>Sign out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <iframe id="mainContent" src="person.html"></iframe>
+    </div>
+
+    <script>
+        function loadContent(page) {
+            const iframe = document.getElementById('mainContent');
+            iframe.src = page;
+
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+        }
+
+        function logout() {
+        localStorage.removeItem('userId')
+        localStorage.removeItem('token');
+        window.location.href = '../index.html'; 
+    }
+    </script>
+</body>
+</html>
